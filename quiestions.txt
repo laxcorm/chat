@@ -1,0 +1,4 @@
+1. какая разница - include (once) , require (once)
+2. print and echo which difference?
+3.How long string after hashing?
+4. Как из массива куки передать данные в браузер

@@ -1,0 +1,17 @@
+.col-xl-3{
+    height:10vh;
+    background-color: chartreuse;
+}
+
+.nav-link{
+    display: block;
+    border-style:solid
+}
+
+.box-body{
+    z-index: 100;
+}
+
+.list-group-item{
+    z-index: 300;
+}
