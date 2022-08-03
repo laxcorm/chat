@@ -13,11 +13,15 @@ if ($chats = $_SESSION['chats']) {
   }
 }
 //переделать по сортировке времени 
+
 $_SESSION['current_chat'] = $messages[0]['chat'];
 
 if ($messages !== NULL) {
   echo json_encode($messages);
 }
+
+
+
 
             /* '<a href="#" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-between">

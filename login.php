@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['user']['id'] = $id;
             $_SESSION['user']['login'] = $login;
 
-            $quer = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'chat' and table_name LIKE '${id}_%'";
+            $quer = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'chat' AND table_name LIKE '${id}_%' OR table_name LIKE '%_${id}'";
 
             $tables_res = $mysqli->query($quer);
 
