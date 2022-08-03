@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['user']['id'] = $id;
             $_SESSION['user']['login'] = $login;
 
-            $quer = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'test' and table_name LIKE '${id}_%'";
+            $quer = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'chat' and table_name LIKE '${id}_%'";
 
             $tables_res = $mysqli->query($quer);
 
@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $chats[] = $table[0];
             }
             $_SESSION['chats'] = $chats;
+       
             require("pages/html_page_chat.php");
         } else {
             $errors[] = "Login or password is not correct";

@@ -12,8 +12,5 @@ if (in_array($table, $_SESSION['chats'])) {
 
     $dialog = $result_dialog->fetch_all(MYSQLI_ASSOC);
 }
-// echo json_encode($dialog);
+ echo json_encode($dialog);
 
-echo $_SESSION['user']['id'];
-var_dump( $_SESSION['current_chat']);
-var_dump($_SESSION['chats']);
