@@ -17,12 +17,12 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-xl-3"><div id="doit"></div>
-        <?=$_SESSION['user']['login'];?>
+      <div class="col-xl-3">
+        <?= $_SESSION['user']['login']; ?>
         <div class="test"></div>
       </div>
       <div class="col-xl-3"><?php var_dump($_SESSION['chats']);
-echo $_SESSION['current_chat'] ?? false?></div>
+                            echo $_SESSION['current_chat'] ?? false ?></div>
       <div class="col-xl-3">
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="login" autocomplete="off">

@@ -165,10 +165,6 @@ $(document).on("click", "a[href='chat']",
     }
 )
 
-
-
-
-
 $(document).ready(
     function () {
         $.ajax(
