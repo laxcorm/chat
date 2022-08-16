@@ -4,14 +4,16 @@ require 'mysqli.php';
 
 $table = $_SESSION['current_chat'];
 
-
-
-$id = isset($_GET['id']) ? $_GET['id'] . ',' : '';
+$id = $_GET['id'] ?? false;
 
 
 // if (!isset($_GET['id'])) {
 if (in_array($table, $_SESSION['chats'])) {
-    $query = "SELECT * FROM $table ORDER BY ID DESC LIMIT $id 5";
+    if ($id) {
+        $query = "SELECT * FROM $table WHERE id < $id ORDER BY id DESC LIMIT 5";
+    } else {
+        $query = "SELECT * FROM $table ORDER BY id DESC LIMIT 5";
+    }
 
     $result_dialog = $mysqli->query($query);
 
