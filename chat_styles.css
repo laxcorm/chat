@@ -376,3 +376,9 @@ body {
     border-style: none;
 }
 
+/* тестовый*/
+.chatmsg{
+    background-color: brown;
+    height: 50px;
+    margin-bottom: 20px;
+}

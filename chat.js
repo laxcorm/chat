@@ -1,6 +1,7 @@
-function chatAdd(id) {
+function chatAdd(/* id */) {
 
     let chatbox = querySelector(".direct-chat-messages");
+
 
     let observer = new IntersectionObserver((entries, observer) => {
 
@@ -8,8 +9,9 @@ function chatAdd(id) {
 
             if (entry.isIntersecting) {
                 /////
-
-                $.ajax({
+                chatbox.append("<div class='chatmsg'>Work is done</div>");
+                //chatbox.html("<div>Work is done</div>");
+                /* $.ajax({
                     method: "get",
                     url: "current_chat.php",
                     data: { id: id },
@@ -36,11 +38,13 @@ function chatAdd(id) {
                             }
                         );
 
-                    })
+                    }) */
+
             }
 
             observer.unobserve(entry.target);
             observer.observe(document.querySelector('.direct-chat-messages  div:last-child'));
+           
 
         })
     }, {
@@ -50,7 +54,8 @@ function chatAdd(id) {
     observer.observe(document.querySelector('.direct-chat-messages  div'));
 }
 
-
+//основной чат
+/*
 $(function () {
     setInterval(function () {
 
@@ -73,10 +78,10 @@ $(function () {
                             // "<img class='direct-chat-img' alt='message user image'>"+
                             "<div class='direct-chat-text'>" + element.message + "</div></div>";
                     });
-                    $(".direct-chat-messages").append(dialog);
+                    $(".direct-chat-messages").html(dialog);
                 }
                 else {
-                    $(".direct-chat-messages").append("<div><h2>No conversation</h2></div>");
+                    $(".direct-chat-messages").html("<div><h2>No conversation</h2></div>");
 
                 }
 
@@ -86,9 +91,21 @@ $(function () {
             chatAdd(id);
             }
         )
-    }, 600);
+    }, 100);
 })
-
+*/
+$(function () {
+  let testLine =  "<div class='chatmsg'>Test line service</div>"+
+    "<div class='chatmsg'>Test line service</div>"+
+    "<div class='chatmsg'>Test line service</div>"+
+    "<div class='chatmsg'>Test line service</div>"+
+    "<div class='chatmsg'>Test line service</div>";
+    let box = document.querySelector('.direct-chat-messages  div:last-child');
+    // $(".direct-chat-messages").html(testLine);
+    box.append(testLine);
+    
+    chatAdd();
+})
 
 
 $("form[name='mes_form']:not('#first')").submit(
