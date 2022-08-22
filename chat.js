@@ -1,7 +1,4 @@
-function chatAdd(/* id */) {
-
-    let chatbox = querySelector(".direct-chat-messages");
-
+function chatAdd(id) {
 
     let observer = new IntersectionObserver((entries, observer) => {
 
@@ -9,27 +6,26 @@ function chatAdd(/* id */) {
 
             if (entry.isIntersecting) {
                 /////
-                chatbox.append("<div class='chatmsg'>Work is done</div>");
+                // $(".direct-chat-messages").append("<div class='chatmsg'>Work is done</div>");
                 //chatbox.html("<div>Work is done</div>");
-                /* $.ajax({
+                $.ajax({
                     method: "get",
                     url: "current_chat.php",
                     data: { id: id },
                     cache: false,
                     dataType: "json"
                 }).done(
-                    function (res) {
-                       
-                        res.forEach(
+                    function (result) {
+                        let speech = '';
+                        result.forEach(
                             element => {
                                 ////
-                               let speech = "<div class='direct-chat-msg' id='" + element.id + "'>" +
+                                    speech = + "<div class='direct-chat-msg' id='" + element.id + "'>" +
                                     "<div class='direct-chat-info clearfix'> <span class='direct-chat-name pull-left'>" + element.login + "</span>" +
                                     "<span class='direct-chat-timestamp pull-right'>" + element.time + "</span></div>" +
                                     // "<img class='direct-chat-img' alt='message user image'>"+
                                     "<div class='direct-chat-text'>" + element.message + "</div></div>";
 
-                                    chatbox.append(speech);
                                 id = element.id;
                                 if (id == 1) {
                                     return;
@@ -38,14 +34,13 @@ function chatAdd(/* id */) {
                             }
                         );
 
-                    }) */
+                        $('.direct-chat-messages').append(speech);
+                    })
 
             }
 
             observer.unobserve(entry.target);
             observer.observe(document.querySelector('.direct-chat-messages  div:last-child'));
-           
-
         })
     }, {
         threshold: 1
@@ -55,7 +50,7 @@ function chatAdd(/* id */) {
 }
 
 //основной чат
-/*
+
 $(function () {
     setInterval(function () {
 
@@ -91,21 +86,25 @@ $(function () {
             chatAdd(id);
             }
         )
-    }, 100);
+    }, 300);
 })
-*/
-$(function () {
+
+
+//это простой тест
+
+/* $(function () {
   let testLine =  "<div class='chatmsg'>Test line service</div>"+
     "<div class='chatmsg'>Test line service</div>"+
     "<div class='chatmsg'>Test line service</div>"+
     "<div class='chatmsg'>Test line service</div>"+
     "<div class='chatmsg'>Test line service</div>";
-    let box = document.querySelector('.direct-chat-messages  div:last-child');
-    // $(".direct-chat-messages").html(testLine);
-    box.append(testLine);
+   // let box = document.querySelector('.direct-chat-messages  div:last-child');
+
+     $(".direct-chat-messages").html(testLine);
+    //box.append(testLine);
     
     chatAdd();
-})
+}) */
 
 
 $("form[name='mes_form']:not('#first')").submit(
